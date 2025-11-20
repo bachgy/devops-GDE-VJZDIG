@@ -2,7 +2,7 @@
 <html lang="hu">
   <head>
     <meta charset="UTF-8" />
-    <title>React Hello World GDE DEVOPS VJZDIG</title>
+    <title>React Dark Mode Hello World</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
@@ -14,31 +14,61 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        background: linear-gradient(135deg, #0ea5e9, #4338ca, #a21caf);
+        background: #0a0a0a;
         font-family: Poppins, sans-serif;
-        color: white;
         overflow: hidden;
       }
 
+      /* Futó fény sötét háttérhez */
       .glow {
-        font-size: 64px;
+        font-size: 72px;
         font-weight: 700;
-        background: linear-gradient(90deg, #22d3ee, #a855f7, #22c55e);
+        background: linear-gradient(90deg, #00f2ea, #a855f7, #4ade80);
         -webkit-background-clip: text;
         color: transparent;
         animation: glow 4s ease-in-out infinite;
+        text-align: center;
+        user-select: none;
       }
 
       @keyframes glow {
-        0% { filter: drop-shadow(0 0 8px #22d3ee); }
-        33% { filter: drop-shadow(0 0 8px #a855f7); }
-        66% { filter: drop-shadow(0 0 8px #22c55e); }
-        100% { filter: drop-shadow(0 0 8px #22d3ee); }
+        0%   { filter: drop-shadow(0 0 12px #00f2ea); }
+        33%  { filter: drop-shadow(0 0 12px #a855f7); }
+        66%  { filter: drop-shadow(0 0 12px #4ade80); }
+        100% { filter: drop-shadow(0 0 12px #00f2ea); }
+      }
+
+      /* finom, lebegő háttérkörök */
+      .orb {
+        position: absolute;
+        width: 450px;
+        height: 450px;
+        border-radius: 50%;
+        background: radial-gradient(circle at center, rgba(168,85,247,0.2), transparent);
+        animation: float 12s ease-in-out infinite alternate;
+        filter: blur(80px);
+      }
+
+      .orb2 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle at center, rgba(0,242,234,0.15), transparent);
+        left: 60%;
+        top: 50%;
+        animation-delay: -6s;
+      }
+
+      @keyframes float {
+        from { transform: translateY(-40px); }
+        to   { transform: translateY(60px); }
       }
     </style>
   </head>
 
   <body>
+    <div class="orb"></div>
+    <div class="orb orb2"></div>
+
     <div id="root"></div>
 
     <!-- React 18 CDN -->
@@ -47,7 +77,7 @@
 
     <script>
       function App() {
-        return React.createElement("div", { className: "glow" }, "Hello World GDE VJZDIG v1.0");
+        return React.createElement("div", { className: "glow" }, "Hello World");
       }
 
       ReactDOM.createRoot(document.getElementById("root")).render(
