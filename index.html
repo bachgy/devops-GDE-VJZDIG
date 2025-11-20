@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="hu">
+  <head>
+    <meta charset="UTF-8" />
+    <title>React Hello World</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+      body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #0ea5e9, #4338ca, #a21caf);
+        font-family: Poppins, sans-serif;
+        color: white;
+        overflow: hidden;
+      }
+
+      .glow {
+        font-size: 64px;
+        font-weight: 700;
+        background: linear-gradient(90deg, #22d3ee, #a855f7, #22c55e);
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: glow 4s ease-in-out infinite;
+      }
+
+      @keyframes glow {
+        0% { filter: drop-shadow(0 0 8px #22d3ee); }
+        33% { filter: drop-shadow(0 0 8px #a855f7); }
+        66% { filter: drop-shadow(0 0 8px #22c55e); }
+        100% { filter: drop-shadow(0 0 8px #22d3ee); }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <!-- React 18 CDN -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+
+    <script>
+      function App() {
+        return React.createElement("div", { className: "glow" }, "Hello World");
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(
+        React.createElement(App)
+      );
+    </script>
+  </body>
+</html>
